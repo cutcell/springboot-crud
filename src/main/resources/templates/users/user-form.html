@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>User</title>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          rel="stylesheet" media="screen"/>
+</head>
+<body>
+<section class="container">
+
+    <h2>User</h2>
+
+    <div class="container">
+        <form class="form-horizontal" th:object="${user}" th:action="@{/users}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">User name:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" th:field="*{username}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Password:</label>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" th:field="*{password}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Full name:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" th:field="*{fullName}"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+        </form>
+    </div>
+
+</section>
+</body>
+</html>

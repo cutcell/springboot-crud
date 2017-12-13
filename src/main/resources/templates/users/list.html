@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List of users</title>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          rel="stylesheet" media="screen"/>
+</head>
+<body>
+<section class="container">
+
+    <h2>Users</h2>
+
+    <table class="table thead-light table-sm">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Roles</th>
+                <th>Username</th>
+                <th>Full name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.roles}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.fullName}"></td>
+                <td>
+                    <a class="btn btn-sm btn-success" th:href="${'/users/edit/' + user.id}">Edit</a>
+                    <a class="btn btn-sm btn-danger" th:href="${'/users/delete/' + user.id}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-success" href="/users/new">New user</a>
+
+</section>
+</body>
+</html>
