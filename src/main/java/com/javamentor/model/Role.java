@@ -1,4 +1,4 @@
-package com.javamentor.domain;
+package com.javamentor.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Role extends DomainEntityImpl {
+public class Role {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String name;
 
@@ -17,6 +21,14 @@ public class Role extends DomainEntityImpl {
     private List<User> users = new ArrayList<>();
 
     public Role() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

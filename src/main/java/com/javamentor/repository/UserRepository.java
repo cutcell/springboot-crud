@@ -1,6 +1,6 @@
 package com.javamentor.repository;
 
-import com.javamentor.domain.User;
+import com.javamentor.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Integer> {

@@ -1,7 +1,7 @@
 package com.javamentor.bootstrap;
 
-import com.javamentor.domain.Role;
-import com.javamentor.domain.User;
+import com.javamentor.model.Role;
+import com.javamentor.model.User;
 import com.javamentor.service.RoleService;
 import com.javamentor.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

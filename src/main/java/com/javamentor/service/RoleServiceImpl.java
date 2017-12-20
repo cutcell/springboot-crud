@@ -1,6 +1,6 @@
 package com.javamentor.service;
 
-import com.javamentor.domain.Role;
+import com.javamentor.model.Role;
 import com.javamentor.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

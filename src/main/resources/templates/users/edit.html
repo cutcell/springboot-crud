@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>User</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          rel="stylesheet" media="screen"/>
+</head>
+<body>
+
+<div th:fragment="userForm (userToEdit)">
+
+    <form class="form-horizontal" th:action="@{/users}" method="post">
+        <input type="hidden" th:value="${userToEdit.id}" th:id="id" th:name="id"/>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label">User name:</label>
+            <div class="col">
+                <input type="text" class="form-control" th:value="${userToEdit.username}" th:id="username" th:name="username"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label">Password:</label>
+            <div class="col">
+                <input type="password" class="form-control" th:value="${userToEdit.password}" th:id="password" th:name="password"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 control-label">Full name:</label>
+            <div class="col">
+                <input type="text" class="form-control" th:value="${userToEdit.fullName}" th:id="fullName" th:name="fullName"/>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

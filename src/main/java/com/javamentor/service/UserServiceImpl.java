@@ -1,6 +1,6 @@
 package com.javamentor.service;
 
-import com.javamentor.domain.User;
+import com.javamentor.model.User;
 import com.javamentor.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.javamentor.service.security;
 
-import com.javamentor.domain.User;
+import com.javamentor.model.User;
 import com.javamentor.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;

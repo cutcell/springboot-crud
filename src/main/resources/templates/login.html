@@ -4,45 +4,45 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Login</title>
 
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           rel="stylesheet" media="screen"/>
 
 </head>
+
+<style>
+    body {
+        background-color: lightgray;
+    }
+</style>
+
 <body>
-<div class="container">
+<div class="container mt-4">
+
     <div class="row">
-        <div class="col-md-5 col-md-offset-4">
-            <h2>Login</h2>
-            <div>
-                <form class="form-horizontal" th:object="${loginForm}" th:action="@{/login}" method="post">
-
-                    <div th:if="${param.error}" class="alert alert-danger">
-                        <p>Invalid username and password.</p>
-                    </div>
-
-                    <div th:if="${param.logout}" class="alert alert-success">
-                        <p>You've been logged out.</p>
-                    </div>
-
-                    <div class="form-group" th:class="${param.error} ? 'form-group has-error' : 'form-group'">
-                        <label class="col-sm-2 control-label">Username:</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="username" id="username"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group" th:class="${param.error} ? 'form-group has-error' : 'form-group'">
-                        <label class="col-sm-2 control-label">Password:</label>
-                        <div class="col-sm-10">
-                            <input type="password"  class="form-control" name="password" id="password"/>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-success">Login</button>
-                </form>
-            </div>
+        <div class="col-sm-4 offset-sm-4">
+            <h2>Please sign in</h2>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-4 offset-sm-4">
+
+            <form class="form-horizontal justify-content-center" th:object="${loginForm}" th:action="@{/login}"
+                  method="post">
+                <div th:if="${param.error}" class="alert alert-danger">
+                    <p>Invalid username and password.</p>
+                </div>
+                <div th:if="${param.logout}" class="alert alert-success">
+                    <p>You've been logged out.</p>
+                </div>
+                <input type="text" class="form-control mb-1" name="username" placeholder="Username"/>
+                <input type="password" class="form-control mb-3" name="password" placeholder="Password"/>
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </form>
+
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

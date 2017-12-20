@@ -1,11 +1,15 @@
-package com.javamentor.domain;
+package com.javamentor.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class User extends DomainEntityImpl {
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     private String username;
     private String password;
@@ -20,6 +24,14 @@ public class User extends DomainEntityImpl {
     private Boolean enabled = true;
 
     public User() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {

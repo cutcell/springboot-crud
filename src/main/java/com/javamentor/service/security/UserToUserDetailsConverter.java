@@ -1,6 +1,6 @@
 package com.javamentor.service.security;
 
-import com.javamentor.domain.User;
+import com.javamentor.model.User;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

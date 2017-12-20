@@ -19,13 +19,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().ignoringAntMatchers("/h2-console").disable();
-
-        http.formLogin().loginPage("/login").permitAll()
-                .and().authorizeRequests().antMatchers("/").authenticated()
+        http.csrf().ignoringAntMatchers("/h2-console").disable()
+                .formLogin().loginPage("/login").permitAll()
+                .and().authorizeRequests().antMatchers("/").permitAll()
+                .and().authorizeRequests().antMatchers("/h2-console/**").permitAll()
                 .and().authorizeRequests().antMatchers("/users/**").hasAuthority("ADMIN")
                 .and().authorizeRequests().antMatchers("/roles/**").hasAnyAuthority("USER", "ADMIN")
-                .and().exceptionHandling().accessDeniedPage("/access-denied");
+                .and().exceptionHandling().accessDeniedPage("/access-denied")
+                .and().headers().frameOptions().disable();
 
     }
 

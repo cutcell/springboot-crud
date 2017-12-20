@@ -1,6 +1,6 @@
 package com.javamentor.repository;
 
-import com.javamentor.domain.Role;
+import com.javamentor.model.Role;
 import org.springframework.data.repository.CrudRepository;
 
 public interface RoleRepository extends CrudRepository<Role, Integer> {
