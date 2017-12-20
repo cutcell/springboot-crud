@@ -1,11 +1,14 @@
 package com.javamentor.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +18,7 @@ public class User {
     private String password;
     private String fullName;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name = "fk_user")},
@@ -24,6 +28,11 @@ public class User {
     private Boolean enabled = true;
 
     public User() {
+    }
+
+    @Override
+    public String toString() {
+        return username;
     }
 
     public Integer getId() {
@@ -73,4 +82,5 @@ public class User {
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
+
 }
