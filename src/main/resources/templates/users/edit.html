@@ -10,29 +10,58 @@
 
 <div th:fragment="userForm (userToEdit)">
 
-    <form class="form-horizontal" th:action="@{/users}" method="post">
-        <input type="hidden" th:value="${userToEdit.id}" th:id="id" th:name="id"/>
-        <div class="form-group row">
-            <label class="col-sm-3 control-label">User name:</label>
-            <div class="col">
-                <input type="text" class="form-control" th:value="${userToEdit.username}" th:id="username" th:name="username"/>
-            </div>
-        </div>
+    <div class="modal fade" th:id="'editUserModal'+${userToEdit.id}" tabindex="-1" role="dialog"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
-        <div class="form-group row">
-            <label class="col-sm-3 control-label">Password:</label>
-            <div class="col">
-                <input type="password" class="form-control" th:value="${userToEdit.password}" th:id="password" th:name="password"/>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-3 control-label">Full name:</label>
-            <div class="col">
-                <input type="text" class="form-control" th:value="${userToEdit.fullName}" th:id="fullName" th:name="fullName"/>
-            </div>
-        </div>
+                <div class="modal-header">
+                    <h5 class="modal-title">User</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-    </form>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" th:action="@{/users}" method="post">
+                        <input type="hidden" th:value="${userToEdit.id}" th:id="id" th:name="id"/>
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">User name:</label>
+                            <div class="col">
+                                <input type="text" class="form-control" th:value="${userToEdit.username}" th:id="username" th:name="username"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Password:</label>
+                            <div class="col">
+                                <input type="password" class="form-control" th:value="${userToEdit.password}" th:id="password" th:name="password"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 control-label">Full name:</label>
+                            <div class="col">
+                                <input type="text" class="form-control" th:value="${userToEdit.fullName}" th:id="fullName" th:name="fullName"/>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
 
 </div>
 

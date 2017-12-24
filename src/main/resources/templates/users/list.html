@@ -74,37 +74,14 @@
                                         <td th:text="${user.username}"></td>
                                         <td th:text="${user.fullName}"></td>
                                         <td>
-                                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal"
-                                                    data-target="#editUserModal">Edit
-                                            </button>
-                                            <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog"
-                                                 aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">User</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-
-                                                        <div class="modal-body">
-                                                            <div th:include="/users/edit :: userForm(userToEdit=${user})"></div>
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-success">Save</button>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
+                                            <div class="row">
+                                                <button type="button" class="btn btn-sm btn-success" data-toggle="modal"
+                                                        th:attr="data-target='#editUserModal'+${user.id}">Edit
+                                                </button>
+                                                <div th:include="/users/edit :: userForm(userToEdit=${user})"></div>
+                                                <a class="btn btn-sm btn-danger"
+                                                   th:href="${'/users/delete/' + user.id}">Delete</a>
                                             </div>
-
-                                            <a class="btn btn-sm btn-danger"
-                                               th:href="${'/users/delete/' + user.id}">Delete</a>
                                         </td>
 
                                     </tr>

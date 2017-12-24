@@ -16,35 +16,35 @@ public class RoleRestController {
     private RoleService roleService;
 
     @GetMapping
-    public List<Role> getUsersList() {
+    public List<Role> getRolesList() {
         return roleService.listAll();
     }
 
     @GetMapping("{id}")
-    public Role getUserById(@PathVariable Integer id) {
+    public Role getRoleById(@PathVariable Integer id) {
         return roleService.getById(id);
     }
 
     @PostMapping("new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Role addNewUser(@RequestBody Role newRole) {
+    public Role addNewRole(@RequestBody Role newRole) {
         return roleService.saveOrUpdate(newRole);
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Role updateUser(@PathVariable Integer id, @RequestBody Role updatedRole) {
+    public Role updateRole(@PathVariable Integer id, @RequestBody Role updatedRole) {
 
-        Role foudRole = roleService.getById(id);
-        foudRole.setName(updatedRole.getName());
-        foudRole.setUsers(updatedRole.getUsers());
+        Role foundRole = roleService.getById(id);
+        foundRole.setName(updatedRole.getName());
+        foundRole.setUsers(updatedRole.getUsers());
 
-        return roleService.saveOrUpdate(foudRole);
+        return roleService.saveOrUpdate(foundRole);
 
     }
 
     @DeleteMapping("{id}")
-    public void deleteUser(@PathVariable Integer id) {
+    public void deleteRole(@PathVariable Integer id) {
         roleService.delete(id);
     }
 
