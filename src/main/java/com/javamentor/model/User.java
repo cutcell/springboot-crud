@@ -17,6 +17,7 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String fullName;
+    private Boolean enabled = true;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
@@ -25,7 +26,7 @@ public class User implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "fk_role")})
     private List<Role> roles = new ArrayList<>();
 
-    private Boolean enabled = true;
+
 
     public User() {
     }
