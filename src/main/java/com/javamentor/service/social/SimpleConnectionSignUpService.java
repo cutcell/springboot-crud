@@ -6,12 +6,15 @@ import com.javamentor.service.RoleService;
 import com.javamentor.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
 import org.springframework.social.connect.UserProfile;
+import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
+import java.util.Collections;
 
+@Component
 public class SimpleConnectionSignUpService implements ConnectionSignUp {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleConnectionSignUpService.class);
@@ -19,6 +22,7 @@ public class SimpleConnectionSignUpService implements ConnectionSignUp {
     private UserService userService;
     private RoleService roleService;
 
+    @Autowired
     public SimpleConnectionSignUpService(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
@@ -27,11 +31,11 @@ public class SimpleConnectionSignUpService implements ConnectionSignUp {
     @Override
     public String execute(Connection<?> connection) {
 
-        LOGGER.debug("--- Profile URL: {}", connection.getProfileUrl());
+        LOGGER.debug("Profile URL: {}", connection.getProfileUrl());
 
         UserProfile profile = connection.fetchUserProfile();
 
-        LOGGER.debug("--- Fetched profile username: {}", profile.getUsername());
+        LOGGER.debug("Fetched profile username: {}", profile.getUsername());
 
         Role userRole = new Role();
         userRole.setName("USER");
@@ -41,7 +45,7 @@ public class SimpleConnectionSignUpService implements ConnectionSignUp {
         user.setUsername(profile.getUsername());
         user.setPassword("");
         user.setFullName(String.format("%s %s", profile.getFirstName(), profile.getLastName()));
-        user.setRoles(Arrays.asList(userRole));
+        user.setRoles(Collections.singletonList(userRole));
 
         userService.saveOrUpdate(user);
 

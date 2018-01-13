@@ -1,20 +1,20 @@
 package com.javamentor.service.social;
 
-import com.javamentor.config.SocialConfig;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.social.security.SocialUser;
 import org.springframework.social.security.SocialUserDetails;
 import org.springframework.social.security.SocialUserDetailsService;
+import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-
+@Component
 public class SimpleSocialUserDetailsService implements SocialUserDetailsService {
 
     private UserDetailsService userDetailsService;
 
+    @Autowired
     public SimpleSocialUserDetailsService(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }

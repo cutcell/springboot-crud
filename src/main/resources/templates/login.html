@@ -9,9 +9,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           th:href="@{/webjars/font-awesome/css/font-awesome.min.css}"
           rel="stylesheet" media="screen"/>
-    <link href="https://cdn.jsdelivr.net/gh/lipis/bootstrap-social@5.1.1/bootstrap-social.css"
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css"
           th:href="@{/webjars/bootstrap-social/bootstrap-social.css}"
           rel="stylesheet" media="screen"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+            th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             th:src="@{/webjars/jquery/jquery.min.js}"></script>
 </head>
@@ -46,14 +48,14 @@
     <div class="row mt-2">
         <div class="col-sm-4 offset-sm-4">
             <a th:href="@{/auth/google(scope='profile')}" class="btn btn-block btn-social btn-google">
-                <span class="fa fa-google"></span>Sign in with Google
+                <i class="fa fa-google"></i> Sign in with Google
             </a>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-sm-4 offset-sm-4">
             <a th:href="@{/auth/vkontakte(scope='offline')}" class="btn btn-block btn-social btn-vk">
-                <i class="fa fa-vk" aria-hidden="true"></i>Sign in with VK
+                <i class="fa fa-vk"></i> Sign in with VK
             </a>
         </div>
     </div>
